@@ -1,0 +1,33 @@
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
+set number
+
+" section break
+map ,s o<CR><Esc>75i/<Esc>o// Section<CR><Esc>75i/<Esc>o<Esc>2k3lcw
+
+" new class break
+map ,n o<CR><Esc>75i*<Esc>o** NewClass<CR><Esc>75i*<Esc>o<Esc>2k3lcw
+
+" comment out visual block
+vmap ,c "zd:set paste<CR>i/*<CR><C-R>z<Esc>:set nopaste<CR>O*/<Esc>
+
+" uncomment /* and */ from the current block
+nmap ,u mi?[\t ]*/*\*[\t ]*$<CR>%%dd''dd<CR>`i
+
+" comment line or visual block
+function! FanComment()
+  let hls=@/
+  s/^/\/\//
+  let @/=hls
+endfunction
+map <M-c> :call FanComment()<CR>
+
+" uncomment line or visual block
+function! FanUnComment()
+  let hls=@/
+  s/^\/\///
+  let @/=hls
+endfunction
+map <M-u> :call FanUnComment()<CR>
