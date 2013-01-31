@@ -4,8 +4,8 @@ alias totalcmd='wine ~/.wine/drive_c/totalcmd/TOTALCMD.EXE'
 alias src='cd ~/dev/src'
 alias cp='cp -i'
 alias mv='mv -i'
-alias tu='top -o cpu'	#cpu
-alias tm='top -o vsize' #memory
+alias tu='top -o cpu -s 3'	#cpu
+alias tm='top -o vsize -s 3' #memory
 alias cdd='cd -'
 
 # Get OS X Software Updates, update Homebrew itself, and upgrade installed Homebrew packages

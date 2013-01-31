@@ -19,6 +19,14 @@ endif
 
 set number " Enable line numbers
 syntax on " Enable syntax highlighting
+
+"solarized settings
+syntax enable
+set background=dark
+let g:solarized_termcolors=256	
+colorscheme solarized
+
+
 set cursorline " Highlight current line
 set tabstop=4 " Make tabs as wide as two spaces
 set autoindent
