@@ -20,23 +20,30 @@ endif
 set number " Enable line numbers
 syntax on " Enable syntax highlighting
 
+set winheight=30	" current window is 30 lines
+set winminheight=5	" make sure splits are at least 5 lines
+
 "solarized settings
 syntax enable
 set background=dark
-let g:solarized_termcolors=256	
+"let g:solarized_termcolors=256	
 colorscheme solarized
 
 
 set cursorline " Highlight current line
 set tabstop=4 " Make tabs as wide as two spaces
 set autoindent
-filetype indent on
+filetype plugin indent on
+
+"set smartindent	" smart auto indenting
+"set smarttab    " smart tab handling for indenting
 
 " Show “invisible” characters
 "set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 "set list
 set hlsearch " Highlight searches
 set ignorecase " Ignore case of searches
+set smartcase  "but become case sensitive if you type uppercase characte
 set incsearch " Highlight dynamically as pattern is typed
 set laststatus=2 " Always show status line
 set mouse=a " Enable mouse in all modes
@@ -53,6 +60,9 @@ set showcmd " Show the (partial) command as it’s being typed
 "	au BufReadPost * set relativenumber
 "endif
 set scrolloff=3 " Start scrolling three lines before the horizontal window border
+
+set showmatch		" show matching bracket (briefly jump)
+set matchpairs+=<:> " specially for html
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -73,3 +83,6 @@ if has("autocmd")
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
+
+" add GOlang support
+" set rtp+=$GOROOT/misc/vim
